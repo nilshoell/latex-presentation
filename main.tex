@@ -19,7 +19,8 @@
 %	BASIC DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 \documentclass[
-  paper=128mm:96mm, % The same paper size as used in the beamer class
+  paper=landscape, % Horizontal paper orientation
+  paper=160mm:90mm, % 16:9cm paper size -> perfect with font size 11
   fontsize=11pt, % Font size
   pagesize, % Write page size to dvi or pdf
   parskip=half-, % Paragraphs separated by half a line
@@ -38,11 +39,17 @@
 \definecolor{myblue}{RGB}{34,31,217}
 \definecolor{mybrown}{RGB}{194,164,113}
 \definecolor{myred}{RGB}{255,66,56}
+
 % Use these colors within the presentation by enclosing text in the commands below
 \newcommand*{\mygreen}[1]{\textcolor{mygreen}{#1}}
 \newcommand*{\myblue}[1]{\textcolor{myblue}{#1}}
 \newcommand*{\mybrown}[1]{\textcolor{mybrown}{#1}}
 \newcommand*{\myred}[1]{\textcolor{myred}{#1}}
+
+% Set Base colors
+\newcommand*{\cprimary}[1]{\mygreen{#1}}
+\newcommand*{\csecondary}[1]{\myblue{#1}}
+\newcommand*{\chighlight}[1]{\myred{#1}}
 %------------------------------------------------
 
 
@@ -95,7 +102,7 @@
 \usepackage{booktabs} % Required for horizontal rules in tables
 \usepackage{multicol} % Required for creating multiple columns in slides
 \usepackage{lastpage} % For printing the total number of pages at the bottom of each slide
-\usepackage[english]{babel} % Document language - required for customizing section titles
+\usepackage[english, ngerman]{babel} % Document language - required for customizing section titles
 \usepackage{microtype} % Better typography
 \usepackage{tocstyle} % Required for customizing the table of contents
 %------------------------------------------------
@@ -205,7 +212,7 @@
 \hspace{-2mm}
 \begin{tikzpicture}[remember picture,overlay]
 \node [xshift=\paperwidth/2,yshift=-\headheight] (mybar) at (current page.north west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=2\headheight,top color=mygreen!64,bottom color=mygreen]{}; % Colored bar
-\node[below of=mybar,yshift=3.3mm,rectangle,shade,inner sep=0pt,minimum width=128mm,minimum height =1.5mm,top color=black!50,bottom color=white]{}; % Shadow under the colored bar
+\node[below of=mybar,yshift=3.3mm,rectangle,shade,inner sep=0pt,minimum width=160mm,minimum height =1.5mm,top color=black!50,bottom color=white]{}; % Shadow under the colored bar
 shadow
 \end{tikzpicture}
 \color{white}\runninghead} % Header text defined by the \runninghead command below and colored white for contrast
@@ -281,7 +288,7 @@ shadow
 %	TITLE SLIDE
 %----------------------------------------------------------------------------------------
 
-\include{Base/title.tex}
+\input{Base/title.tex}
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
@@ -301,15 +308,15 @@ shadow
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
-\include{Sections/section1.tex}
-\include{Sections/section2.tex}
-\include{Sections/section3.tex}
+\input{Sections/section1.tex}
+\input{Sections/section2.tex}
+\input{Sections/section3.tex}
 
 %----------------------------------------------------------------------------------------
 %	FINAL SLIDES
 %----------------------------------------------------------------------------------------
 
-\include{Base/end.tex}
+\input{Base/end.tex}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
@@ -317,8 +324,7 @@ shadow
 
 \thispagestyle{empty} % No slide header and footer
 
-\bibliographystyle{unsrt}
-\bibliography{sample}
+\printbibliography[heading=bibintoc]
 
 \clearpage
 

@@ -23,6 +23,6 @@
 *.mtc1
 *.out
 *.synctex.gz
-main.run.xml
+*.run.xml
 *.lol
-main.pdf
+*.pdf

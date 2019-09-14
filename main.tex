@@ -209,13 +209,14 @@
 %	HEADER CONFIG
 %----------------------------------------------------------------------------------------
 \ihead{
-\hspace{-2mm}
-\begin{tikzpicture}[remember picture,overlay]
-\node [xshift=\paperwidth/2,yshift=-\headheight] (mybar) at (current page.north west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=2\headheight,top color=mygreen!64,bottom color=mygreen]{}; % Colored bar
-\node[below of=mybar,yshift=3.3mm,rectangle,shade,inner sep=0pt,minimum width=160mm,minimum height =1.5mm,top color=black!50,bottom color=white]{}; % Shadow under the colored bar
-shadow
-\end{tikzpicture}
-\color{white}\runninghead} % Header text defined by the \runninghead command below and colored white for contrast
+  \hspace{-2mm}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node [xshift=\paperwidth/2,yshift=-\headheight] (mybar) at (current page.north west)[rectangle,fill,inner sep=0pt,minimum  width=\paperwidth,minimum height=2\headheight,top color=mygreen!64,bottom color=mygreen]{}; % Colored bar
+    \node[below of=mybar,yshift=3.3mm,rectangle,shade,inner sep=0pt,minimum width=160mm,minimum height =1.5mm,top color=black!50, bottom color=white]{}; % Shadow under the colored bar
+    shadow
+  \end{tikzpicture}
+  \color{white}\runninghead
+} % Header text defined by the \runninghead command below and colored white for contrast
 %------------------------------------------------
 
 
@@ -226,11 +227,11 @@ shadow
 \addtokomafont{pagefoot}{\footnotesize} % Small font size for the footnote
 
 \ifoot{% Left side
-\hspace{-2mm}
-\begin{tikzpicture}[remember picture,overlay]
-\node [xshift=\paperwidth/2,yshift=\footheight] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=3pt,top color=mygreen,bottom color=mygreen]{}; % Green bar
-\end{tikzpicture}
-\myauthor\ \raisebox{0.2mm}{$\bm{\vert}$}\ \myuni % Left side text
+  \hspace{-2mm}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node [xshift=\paperwidth/2,yshift=\footheight] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum   width=\paperwidth,minimum height=3pt,top color=mygreen,bottom color=mygreen]{}; % Green bar
+  \end{tikzpicture}
+  \myauthor\ \raisebox{0.2mm}{$\bm{\vert}$}\ \myuni % Left side text
 }
 
 \ofoot[\pagemark/\pageref{LastPage}\hspace{-2mm}]{\pagemark/\pageref{LastPage}\hspace{-2mm}} % Right side
@@ -271,14 +272,20 @@ shadow
 \newcommand*{\mybox}[2]{ % The box takes two arguments: width and content
 \par\noindent
 \begin{tikzpicture}[mynodestyle/.style={rectangle,draw=mygreen,thick,inner sep=2mm,text justified,top color=white,bottom color=white,above}]\node[mynodestyle,at={(0.5*#1+2mm+0.4pt,0)}]{ % Box formatting
-\begin{minipage}[t]{#1}
-#2
-\end{minipage}
+  \begin{minipage}[t]{#1}
+    #2
+  \end{minipage}
 };
 \end{tikzpicture}
 \par\vspace{-1.3em}}
 %------------------------------------------------
 
+% ------ HYPERSETUP ------
+\AtBeginDocument{
+  \hypersetup{pdftitle=\mytitle} % Set the PDF's title to your title
+  \hypersetup{pdfauthor=\myauthor} % Set the PDF's author to your name
+  \hypersetup{hidelinks=true,} % Prints all links black; comment out for default LaTeX behavior
+}
 
 %----------------------------------------------------------------------------------------
 

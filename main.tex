@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Version 0.2.0 (2019-09-13)
+% Version 0.3.0 (2019-09-15)
 %
-% Created by Nils Siegle
+% Modified by Nils Siegle
 % 
 % Based on https://www.latextemplates.com/template/masters-doctoral-thesis
 %
@@ -24,6 +24,7 @@
   fontsize=11pt, % Font size
   pagesize, % Write page size to dvi or pdf
   parskip=half-, % Paragraphs separated by half a line
+  ngerman, % ngerman for new german; english
 ]{scrartcl} % KOMA script (article)
 
 \linespread{1.12} % Increase line spacing for readability
@@ -40,16 +41,21 @@
 \definecolor{mybrown}{RGB}{194,164,113}
 \definecolor{myred}{RGB}{255,66,56}
 
+% Set Base colors
+\definecolor{cprimary}{RGB}{13,136,115}
+\definecolor{csecondary}{RGB}{20,78,129}
+\definecolor{chighlight}{RGB}{156,15,12}
+
 % Use these colors within the presentation by enclosing text in the commands below
 \newcommand*{\mygreen}[1]{\textcolor{mygreen}{#1}}
 \newcommand*{\myblue}[1]{\textcolor{myblue}{#1}}
 \newcommand*{\mybrown}[1]{\textcolor{mybrown}{#1}}
 \newcommand*{\myred}[1]{\textcolor{myred}{#1}}
 
-% Set Base colors
-\newcommand*{\cprimary}[1]{\mygreen{#1}}
-\newcommand*{\csecondary}[1]{\myblue{#1}}
-\newcommand*{\chighlight}[1]{\myred{#1}}
+\newcommand*{\cprimary}[1]{\textcolor{cprimary}{#1}}
+\newcommand*{\csecondary}[1]{\textcolor{csecondary}{#1}}
+\newcommand*{\chighlight}[1]{\textcolor{chighlight}{#1}}
+
 %------------------------------------------------
 
 
@@ -163,22 +169,38 @@
 
 % Styling
 \lstset{
-	showtabs=false,
-	showspaces=false,
-	%tabsize=4,
-	%tab=\rightarrowfill,
-	showstringspaces=false,
-	basicstyle=\ttfamily,
-	columns=fullflexible,
-	frame=single,
-	%frameround=tttt,
-	breaklines=true,
-	backgroundcolor=\color{lstbg},
-	commentstyle=\color{lstComment},
-	stringstyle=\color{lstStr},
-	keywordstyle=\color{lstKey},
-	%prebreak=\mbox{\textbackslash}%,
+  showtabs=false,
+  showspaces=false,
+  %tabsize=4,
+  %tab=\rightarrowfill,
+  showstringspaces=false,
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  %frameround=tttt,
+  breaklines=true,
+  backgroundcolor=\color{lstbg},
+  commentstyle=\color{lstComment},
+  stringstyle=\color{lstStr},
+  keywordstyle=\color{lstKey},
+  %prebreak=\mbox{\textbackslash}%,
+  literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {ß}{{\ss}}1
 }
+
+
+%----------------------------------------------------------------------------------------
+%	CUSTOM COMMANDS
+%----------------------------------------------------------------------------------------
+
+% Colored rectangles
+\newcommand\crule[3][black][1cm][1cm]{\textcolor{#1}{\rule{#2}{#3}}}
 
 %----------------------------------------------------------------------------------------
 %	SLIDE LAYOUT CONFIG
@@ -211,7 +233,7 @@
 \ihead{
   \hspace{-2mm}
   \begin{tikzpicture}[remember picture,overlay]
-    \node [xshift=\paperwidth/2,yshift=-\headheight] (mybar) at (current page.north west)[rectangle,fill,inner sep=0pt,minimum  width=\paperwidth,minimum height=2\headheight,top color=mygreen!64,bottom color=mygreen]{}; % Colored bar
+    \node [xshift=\paperwidth/2,yshift=-\headheight] (mybar) at (current page.north west)[rectangle,fill,inner sep=0pt,minimum  width=\paperwidth,minimum height=2\headheight,top color=cprimary!64,bottom color=cprimary]{}; % Colored bar
     \node[below of=mybar,yshift=3.3mm,rectangle,shade,inner sep=0pt,minimum width=160mm,minimum height =1.5mm,top color=black!50, bottom color=white]{}; % Shadow under the colored bar
     shadow
   \end{tikzpicture}
@@ -229,7 +251,7 @@
 \ifoot{% Left side
   \hspace{-2mm}
   \begin{tikzpicture}[remember picture,overlay]
-    \node [xshift=\paperwidth/2,yshift=\footheight] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum   width=\paperwidth,minimum height=3pt,top color=mygreen,bottom color=mygreen]{}; % Green bar
+    \node [xshift=\paperwidth/2,yshift=\footheight] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum   width=\paperwidth,minimum height=3pt,top color=cprimary,bottom color=cprimary]{}; % Green bar
   \end{tikzpicture}
   \myauthor\ \raisebox{0.2mm}{$\bm{\vert}$}\ \myuni % Left side text
 }
@@ -245,7 +267,7 @@
 \titlespacing{\section}{0mm}{0mm}{0mm} % Lengths are: left, before, after
 \titlespacing{\subsection}{0mm}{0mm}{-1mm} % Lengths are: left, before, after
 \titlespacing{\subsubsection}{0mm}{0mm}{-2mm} % Lengths are: left, before, after
-\setcounter{secnumdepth}{0} % How deep sections are numbered, set to no numbering by default - change to 1 for numbering sections, 2 for numbering sections and subsections, etc
+\setcounter{secnumdepth}{2} % How deep sections are numbered, set to no numbering by default - change to 1 for numbering sections, 2 for numbering sections and subsections, etc
 %------------------------------------------------
 
 %------------------------------------------------
@@ -301,7 +323,7 @@
 %	TABLE OF CONTENTS
 %----------------------------------------------------------------------------------------
 
-\thispagestyle{empty} % No slide header and footer
+% \thispagestyle{empty} % No slide header and footer
 
 % Change the font size and print the table of contents
 \small\tableofcontents

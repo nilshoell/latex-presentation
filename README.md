@@ -26,6 +26,15 @@ Text variables that are used to define common strings used throughout the presen
 | `mysup`       | Supervisor                  | N/A                          |
 
 
+#### Config
+
+| Name          | Meaning                      | Used in  |
+| ------------- | ---------------------------- | -------- |
+| `secnumdepth` | Depth of Table of contents   | main.tex |
+| `tocdepth`    | Depth of section numbering   | main.tex |
+| `preslang`    | Language of the presentation | babel    |
+
+
 #### Colors
 
 Can be used to color text with `\cprimary{text to color in primary}` or with `\color{<name>}` to set a color anywhere in the document.

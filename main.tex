@@ -24,7 +24,6 @@
   fontsize=11pt, % Font size
   pagesize, % Write page size to dvi or pdf
   parskip=half-, % Paragraphs separated by half a line
-  ngerman, % ngerman for new german; english
 ]{scrartcl} % KOMA script (article)
 
 \linespread{1.12} % Increase line spacing for readability
@@ -86,6 +85,11 @@
 \newcommand*{\mysubj}{Computer Sciences}          % Subject (currently not used)
 \newcommand*{\mysup}{Dr. John D. Smith}           % Supervisors name(s) (currently not used)
 
+% Further document configuration
+\newcommand*{\secnumdepth}{2}                     % Depth of section numbering; 1 = sections only, 2 = sec + subsec
+\newcommand*{\tocdepth}{1}                        % Depth of table of contents; 1 = sections only
+\newcommand*{\preslang}{english}                  % Language of the presentation; ngerman for german
+
 %----------------------------------------------------------------------------------------
 %	FONTS
 %----------------------------------------------------------------------------------------
@@ -108,7 +112,7 @@
 \usepackage{booktabs} % Required for horizontal rules in tables
 \usepackage{multicol} % Required for creating multiple columns in slides
 \usepackage{lastpage} % For printing the total number of pages at the bottom of each slide
-\usepackage[english, ngerman]{babel} % Document language - required for customizing section titles
+\usepackage[\preslang]{babel} % Document language - required for customizing section titles
 \usepackage{microtype} % Better typography
 \usepackage{tocstyle} % Required for customizing the table of contents
 %------------------------------------------------
@@ -224,7 +228,9 @@
 \makeatother
 \usetocstyle{nodotnopagenumber}
 
-\AtBeginDocument{\renewcaptionname{english}{\contentsname}{\Large Outline}} % Change the name of the table of contents
+% Change the name of the table of contents for different languages
+\AtBeginDocument{\renewcaptionname{\preslang}{\contentsname}{\Large Agenda}}
+% \AtBeginDocument{\renewcaptionname{ngerman}{\contentsname}{\Large Gliederung}}
 %------------------------------------------------
 
 
@@ -269,7 +275,8 @@
 \titlespacing{\section}{0mm}{0mm}{0mm} % Lengths are: left, before, after
 \titlespacing{\subsection}{0mm}{0mm}{-1mm} % Lengths are: left, before, after
 \titlespacing{\subsubsection}{0mm}{0mm}{-2mm} % Lengths are: left, before, after
-\setcounter{secnumdepth}{2} % How deep sections are numbered, set to no numbering by default - change to 1 for numbering sections, 2 for numbering sections and subsections, etc
+\setcounter{secnumdepth}{\secnumdepth} % How deep sections are numbered, 1 = sections, 2 = sections and subsections, etc
+\setcounter{tocdepth}{\tocdepth} % How deep sections are displayed in toc
 %------------------------------------------------
 
 %------------------------------------------------

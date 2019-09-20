@@ -6,18 +6,19 @@
 \thispagestyle{empty} % No slide header and footer
 
 \begin{tikzpicture}[remember picture,overlay] % Background box
-    \node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/3,top color=cprimary,bottom color=cprimary]{}; % Change the height of the box, its colors and position on the page here
+    \node [xshift=\paperwidth/2,yshift=\paperheight/2.5] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/2,top color=cprimary,bottom color=cprimary]{}; % Change the height of the box, its colors and position on the page here
 \end{tikzpicture}
 
 % Text within the box
 \begin{flushright}
-    \vspace{0.6cm}
+    \vspace{0.7cm}
     \color{white}\sffamily
     {\bfseries\Large\mytitle\par} % Title
-    \vspace{0.5cm}
+    \vspace{0.3cm}
     \normalsize
     \myauthor\par % Author name
     \mydate\par % Date
+    \myuni \,- \myfac
     \vfill
 \end{flushright}
 

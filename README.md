@@ -6,6 +6,20 @@ It is based on the [KOMA-Script Presentation](http://www.latextemplates.com/temp
 
 ![Sample Slide](readme-img/sample_slide.png)
 
+Table of contents:
+- [LaTeX Presentation Template](#latex-presentation-template)
+  - [Usage](#usage)
+    - [Variables](#variables)
+      - [Text](#text)
+      - [Config](#config)
+      - [Colors](#colors)
+    - [Structure](#structure)
+      - [Base](#base)
+      - [Sections](#sections)
+  - [Features](#features)
+    - [Listings](#listings)
+  - [License](#license)
+
 ## Usage
 
 ### Variables

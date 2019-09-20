@@ -48,18 +48,24 @@
 
 %------------------------------------------------
 
-\subsection{Verbatim}
+\subsection{Code}
 
 \begin{lstlisting}[
-    caption={How to include a theorem in this presentation},
-    label={lst:theorem},
-    language=TeX,
+    caption={Sample PHP Listing},
+    label={lst:sample},
+    language=PHP,
     float=!h
 ]
-\mybox{0.8\textwidth}{
-\begin{theorem}[Murphy (1949)]
-Anything that can go wrong, will go wrong.
-\end{theorem}
+public function renderView($view, $args = [])
+{
+    $template = $this->templatePath . "/views/" . $view . '.twig';
+    if (!file_exists($template)) {
+        $this->return->failReason = 'Could not find template.';
+        $this->send();
+        die();
+    }
+    $html = $this->render($template, $args);
+    return $html;
 }
 \end{lstlisting}
 

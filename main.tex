@@ -78,7 +78,7 @@
 %----------------------------------------------------------------------------------------
 
 \newcommand*{\mytitle}{Presentation Title}        % Title
-\newcommand*{\runninghead}{Running Head}          % Running head displayed on almost all slides
+\newcommand*{\runninghead}{\mytitle}          % Running head displayed on almost all slides
 \newcommand*{\myauthor}{John Smith}               % Presenters name(s)
 \newcommand*{\mysup}{Dr. John D. Smith}           % Supervisors name(s)
 \newcommand*{\mydate}{\today}                     % Presentation date
@@ -251,12 +251,12 @@
 \ifoot{% Left side
   \hspace{-2mm}
   \begin{tikzpicture}[remember picture,overlay]
-    \node [xshift=\paperwidth/2,yshift=\footheight] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum   width=\paperwidth,minimum height=3pt,top color=cprimary,bottom color=cprimary]{}; % Green bar
+    \node [xshift=\paperwidth/2,yshift=\footheight] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum   width=\paperwidth,minimum height=2pt,top color=cprimary,bottom color=cprimary]{}; % Green bar
   \end{tikzpicture}
   \myauthor\ \raisebox{0.2mm}{$\bm{\vert}$}\ \myuni % Left side text
 }
 
-\ofoot[\pagemark/\pageref{LastPage}\hspace{-2mm}]{\pagemark/\pageref{LastPage}\hspace{-2mm}} % Right side
+\ofoot[\pagemark/\pageref*{LastPage}\hspace{-2mm}]{\pagemark/\pageref*{LastPage}\hspace{-2mm}} % Right side
 %------------------------------------------------
 
 
@@ -326,7 +326,7 @@
 % \thispagestyle{empty} % No slide header and footer
 
 % Change the font size and print the table of contents
-\small\tableofcontents
+\small\tableofcontents\label{sec:toc}
 % - it may be useful to shrink the font size further if the presentation is full of sections
 % To exclude sections/subsections from the table of contents, put an asterisk after 
 % \(sub)section like so: \section*{Section Name}

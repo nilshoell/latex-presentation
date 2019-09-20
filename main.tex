@@ -159,7 +159,7 @@
 }
 
 % Load required languages
-\lstloadlanguages{PHP, XML, HTML, Java, JavaScript, SQL}
+\lstloadlanguages{PHP, XML, HTML, Java, JavaScript, SQL, Tex}
 
 % Define colors for highlighting
 \definecolor{lstbg}{gray}{0.95}
@@ -234,7 +234,7 @@
   \hspace{-2mm}
   \begin{tikzpicture}[remember picture,overlay]
     \node [xshift=\paperwidth/2,yshift=-\headheight] (mybar) at (current page.north west)[rectangle,fill,inner sep=0pt,minimum  width=\paperwidth,minimum height=2\headheight,top color=cprimary!64,bottom color=cprimary]{}; % Colored bar
-    \node[below of=mybar,yshift=3.3mm,rectangle,shade,inner sep=0pt,minimum width=160mm,minimum height =1.5mm,top color=black!50, bottom color=white]{}; % Shadow under the colored bar
+    \node[below of=mybar,yshift=4.3mm,rectangle,shade,inner sep=0pt,minimum width=\paperwidth,minimum height =0.5mm,top color=black!50, bottom color=white]{}; % Shadow under the colored bar
     shadow
   \end{tikzpicture}
   \color{white}\runninghead
@@ -306,7 +306,7 @@
 \AtBeginDocument{
   \hypersetup{pdftitle=\mytitle} % Set the PDF's title to your title
   \hypersetup{pdfauthor=\myauthor} % Set the PDF's author to your name
-  \hypersetup{hidelinks=true,} % Prints all links black; comment out for default LaTeX behavior
+  \hypersetup{hidelinks} % Prints all links black; comment out for default LaTeX behavior
 }
 
 %----------------------------------------------------------------------------------------

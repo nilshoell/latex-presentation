@@ -18,6 +18,7 @@ Table of contents:
       - [Sections](#sections)
   - [Features](#features)
     - [Listings](#listings)
+  - [TODO](#todo)
   - [License](#license)
 
 ## Usage
@@ -44,9 +45,9 @@ Text variables that are used to define common strings used throughout the presen
 
 | Name          | Meaning                      | Used in  |
 | ------------- | ---------------------------- | -------- |
+| `preslang`    | Language of the presentation | babel    |
 | `secnumdepth` | Depth of Table of contents   | main.tex |
 | `tocdepth`    | Depth of section numbering   | main.tex |
-| `preslang`    | Language of the presentation | babel    |
 
 
 #### Colors
@@ -108,6 +109,24 @@ public function renderView($view, $args = [])
 ```
 
 ![Sample Listing](readme-img/sample_listing.png)
+
+## TODO
+
+- [ ] Get rid of package `tocstyle` due to various warnings and incompatibilities
+- [ ] Include `titletoc` for partial ToCs at section start
+  - [ ] -> replacing `tocstyle` features
+  - [ ] Add sample of partial ToC of subsections only at section start
+- [ ] Check if needed features of `titlesec` can be replaced by KOMA standard features
+- [ ] Package `scrpage2` is obsolete; replace with `scrlayer-scrpage`
+- [ ] Fix margins to fit new paper size
+- [ ] Fix listing centering (only caption gets centered)
+- [ ] Improve title and final slide
+- [ ] Include package list and links to documentation into README
+- [ ] Add examples
+  - [ ] Text + small figure with minipages
+  - [ ] Two figures on a slide
+  - [ ] Add custom itemize symbols
+- [ ] Test `\hypersetup{pdfpagemode=FullScreen}` for automatic full screen
 
 ## License
 
